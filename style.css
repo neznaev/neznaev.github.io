@@ -1,0 +1,205 @@
+html, body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    font-family: 'Fira Sans Condensed', sans-serif;
+}
+
+  .header {
+    display: flex;
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    align-items: center; /* Центрирование содержимого по вертикали */
+    height: 80px; /* Высота шапки */
+    
+}
+
+.header-logo {
+    /* Подгонка логотипа, размеры можно настроить */
+    max-width: 100%; 
+    max-height: 120px; /* Высота логотипа меньше высоты шапки, чтобы выглядело красиво */
+    margin-top: 0;
+}
+
+.buttons-container {
+    display: flex; /* Используем Flexbox для контейнера кнопок */
+    flex-wrap: wrap; /* Позволяем элементам переходить на новую строку */
+    gap: 8px; /* Расстояние между кнопками */
+    padding: 8px; /* Отступ внутри контейнера кнопок */
+    justify-content: flex-start ; /* Выравниваем кнопки слева */
+    padding-top: 32px;
+  }
+
+  .button {
+    background-color: #f0f0f0; /* Цвет фона кнопки */
+    border: none; /* Убираем границу */
+    border-radius: 100px; /* Скругление углов */
+    padding: 12px 24px; /* Вертикальные и горизонтальные отступы */
+    font-family: 'Fira Sans Condensed', sans-serif; /* Шрифт кнопки */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s; /* Плавное изменение цвета при наведении */
+    text-decoration: none;
+    color: #202227;
+  }
+  .button:hover {
+    background-color: #FFD8D8;
+  }
+
+  /* Переменные для кастомизации карточки */
+:root {
+  --card-width: 336px; /* Ширина карточки */
+  --card-max-width: 100%; /* Максимальная ширина карточки */
+  --card-image-height: 132px; /* Высота изображения */
+  --card-padding: 16px; /* Отступы внутри карточки */
+  --card-radius: 16px; /* Скругление углов карточки */
+  --card-background: #F5F5F5; /* Фон карточки */
+  --card-title-size: 20px; /* Размер шрифта заголовка */
+  --card-text-size: 14px; /* Размер шрифта основного текста */
+  --card-text-color: #828282; /* Цвет текста */
+  --card-title-color: #202227;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column; /* Выстраивает карточки вертикально */
+    align-items: center; /* Центрирует карточки по горизонтали */
+    justify-content: flex-start; /* Центрирует карточки по вертикали, если у контейнера есть определенная высота */
+    gap: 20px; /* Отступы между карточками */
+    margin: 0 auto; /* Дополнительное центрирование контейнера в случае, если он не занимает всю ширину экрана */
+    padding: 20px; /* Отступ внутри контейнера */
+}
+
+.card {
+  width: var(--card-width);
+  max-width: var(--card-max-width);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
+  background-color: var(--card-background);
+  text-decoration: none; /* Убираем подчёркивание текста ссылки */
+  overflow: hidden; /* Обрезаем содержимое по скруглённым углам */
+  display: flex; /* Добавляем flexbox для горизонтального выравнивания */
+  align-items: center; /* Центрируем элементы по вертикали */
+  flex-direction: row-reverse;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: background-color 0.1s ease-in-out;
+
+}
+
+    @media (min-width: 1024px) {
+    .card {
+      width: 60%;
+    }
+  }
+
+    @media (min-width: 1440px) {
+    .card {
+      width: 40%;
+    }
+  }
+
+    @media (min-width: 1200px) {
+    .buttons-container {
+      justify-content: center ;
+    }
+  }
+
+.card:hover {
+    background-color:#F0F0F0;
+
+}
+
+.card-image {
+  width: 0%; /* Ширина изображения равна ширине карточки */
+  height: var(--card-image-height);
+  object-fit: contain; /* Изображение будет заполнять блок полностью */
+  flex-shrink: 0; /* Предотвращаем сжатие картинки */
+  width: auto; /* Устанавливаем ширину автоматически на основе высоты */
+  object-fit: contain; /* Обеспечиваем покрытие блока картинкой без искажений */
+  transition: 0.3s ease-in-out;
+}
+
+.card-content {
+  padding: var(--card-padding);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Выравнивание элементов по левому краю */
+}
+
+.card-title {
+  font-size: var(--card-title-size);
+  margin: 0; /* Убираем отступы заголовка */
+  color: var(--card-text-color);
+  padding: 0;
+  color: #202227;
+}
+
+.card-text {
+  font-size: var(--card-text-size);
+  color: var(--card-text-color);
+  margin-top: 0px; /* Отступ сверху для текста */
+  flex-grow: 1 ; /* Заставляем текстовый блок заполнять всё доступное пространство */
+  max-width: 200px; /* Максимальная ширина текста, после которой текст будет обрезан */
+}
+
+.card:hover .card-image {
+    transform: scale(1.05);
+}
+
+/* Общие стили для футера */
+.footer {
+    display: flex;
+    align-items: center; /* Центрирование содержимого по вертикали */
+    justify-content: center; /* Центрирование содержимого по горизонтали */
+    min-height: 100px; /* Примерная высота футера, задайте свою */
+  }
+  
+  .footer-content {
+    max-width: 1200px; /* Максимальная ширина содержимого футера */
+    margin: 0 auto; /* Центрирование блока */
+    padding: 0 16px; /* Поля внутри контейнера */
+    align-items: center;
+    padding-bottom: 32px;
+  }
+  
+  /* Стилизация текстов и ссылок в футере */
+  .footer h2, .footer a {
+    font-family: 'Fira Sans Condensed', sans-serif;
+    transition: color 0.3s ease; /* Плавное изменение цвета при hover */
+}
+  
+  .footer h2 {
+    font-size: 20px; /* Размер шрифта заголовка */
+    color: #333; /* Цвет текста заголовка */
+    margin-bottom: 8px; /* Отступ снизу заголовка */
+  }
+  
+  .footer a {
+    font-size: 16px; /* Размер шрифта ссылок */
+    color: #828282; /* Цвет ссылок */
+    text-decoration: none; /* Убрать подчеркивание текста */
+  }
+  
+  .footer a:hover {
+    color: #BF1B2C; /* Цвет ссылок при hover */
+  }
+  
+  .footer address {
+    font-size: 16px; /* Размер шрифта адреса */
+    color: #333; /* Цвет текста адреса */
+    margin: 0; /* Убрать стандартные отступы */
+  }
+  
+  .footer .license {
+    font-size: 12px; /* Размер шрифта для лицензии */
+    color: #777; /* Цвет текста лицензии */
+    margin-top: 10px; /* Отступ сверху */
+    font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 300;
+  }
+  
+  p {
+    margin: 0;      /* Убираем стандартные отступы */
+    padding: 4px 0; /* Добавляем меньшие отступы сверху и снизу, например, 5px */
+  }
+  
